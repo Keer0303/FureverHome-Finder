@@ -3,8 +3,11 @@
     <!--  Header  -->
     <div class="manager-header">
       <div class="manager-header-left">
-        <img src="@/assets/imgs/logo.png" />
-        <div class="title">Admin Management System</div>
+        <img src="@/assets/imgs/logo.png" style="border-radius: 50%" />
+        <div class="title">
+          <span v-if="user.role === 'ADMIN'">Admin Management System</span>
+          <span v-else>Furever Home Finder</span>
+        </div>
       </div>
 
       <div class="manager-header-center">
@@ -21,7 +24,7 @@
             <div>{{ user.name ||  'Admin' }}</div>
           </div>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="goToPerson">Personal Info</el-dropdown-item>
+            <el-dropdown-item @click.native="goToPerson">Personal Center</el-dropdown-item>
             <el-dropdown-item @click.native="$router.push('/password')">Change Password</el-dropdown-item>
             <el-dropdown-item @click.native="logout">Logout</el-dropdown-item>
           </el-dropdown-menu>
@@ -42,10 +45,15 @@
             <template slot="title">
               <i class="el-icon-menu"></i><span>Information</span>
             </template>
-            <el-menu-item index="/notice">Announcement Info</el-menu-item>
+            <el-menu-item index="/notice " v-if = "user.role === 'ADMIN'" >Notice Board</el-menu-item>
+
+            <el-menu-item index="/animal" v-if = "user.role === 'ADMIN'" >Animal Info</el-menu-item>
+            <el-menu-item index="/adopt">Adopt Record</el-menu-item>
+            <el-menu-item index="/applications" >Applications </el-menu-item>
+            <el-menu-item index="/submit">Stray Animal Report</el-menu-item>
           </el-submenu>
 
-          <el-submenu index="user">
+          <el-submenu index="user" v-if = "user.role === 'ADMIN'">
             <template slot="title">
               <i class="el-icon-menu"></i><span>User</span>
             </template>
@@ -65,8 +73,15 @@
 </template>
 
 <script>
+import User from "@/views/manager/User.vue";
+
 export default {
   name: "Manager",
+  computed: {
+    User() {
+      return User
+    }
+  },
   data() {
     return {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
@@ -84,6 +99,9 @@ export default {
     goToPerson() {
       if (this.user.role === 'ADMIN') {
         this.$router.push('/adminPerson')
+      }
+      if (this.user.role === 'USER') {
+        this.$router.push('/userPerson')
       }
     },
     logout() {

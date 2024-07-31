@@ -20,6 +20,26 @@ public class Account {
 
     private String token;
 
+    private String phone;
+    /** Email */
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -83,4 +103,5 @@ public class Account {
     public void setToken(String token) {
         this.token = token;
     }
+
 }

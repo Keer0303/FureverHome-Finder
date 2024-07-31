@@ -1,25 +1,23 @@
 <template>
   <div class="container">
-    <div style="width: 400px; padding: 30px; background-color: white; border-radius: 5px;">
-      <div style="text-align: center; font-size: 20px; margin-bottom: 20px; color: #333">Welcome to Register</div>
+    <div class="register-box">
+      <div class="welcome-text">Welcome to Register</div>
       <el-form :model="form" :rules="rules" ref="formRef">
         <el-form-item prop="username">
           <el-input prefix-icon="el-icon-user" placeholder="Please enter your username" v-model="form.username"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input prefix-icon="el-icon-lock" placeholder="Please enter your password" show-password  v-model="form.password"></el-input>
+          <el-input prefix-icon="el-icon-lock" placeholder="Please enter your password" show-password v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item prop="confirmPass">
-          <el-input prefix-icon="el-icon-lock" placeholder="Please confirm your password" show-password  v-model="form.confirmPass"></el-input>
+          <el-input prefix-icon="el-icon-lock" placeholder="Please confirm your password" show-password v-model="form.confirmPass"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button style="width: 100%; background-color: #333; border-color: #333; color: white" @click="register">Register</el-button>
+          <el-button class="register-button" @click="register">Register</el-button>
         </el-form-item>
-        <div style="display: flex; align-items: center">
-          <div style="flex: 1"></div>
-          <div style="flex: 1; text-align: right">
-            Already have an account? Please <a href="/login">Login</a>
-          </div>
+        <div class="login-text-container">
+          <div class="login-text">Already have an account?</div>
+          <a href="/login" class="login-button">Login</a>
         </div>
       </el-form>
     </div>
@@ -41,7 +39,7 @@ export default {
       }
     }
     return {
-      form: {},
+      form: { role: 'USER' },
       rules: {
         username: [
           { required: true, message: 'Please enter your username', trigger: 'blur' },
@@ -54,9 +52,6 @@ export default {
         ]
       }
     }
-  },
-  created() {
-
   },
   methods: {
     register() {
@@ -89,6 +84,72 @@ export default {
   justify-content: center;
   color: #666;
 }
+
+.register-box {
+  width: 500px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.welcome-text {
+  font-size: 26px;
+  white-space: nowrap;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  width: 100%;
+  background-color: #555;
+  border-color: #555;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #333;
+  border-color: #333;
+}
+
+.login-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.login-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #555;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+  max-width: 200px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+
 a {
   color: #2a60c9;
 }

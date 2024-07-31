@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="card" style="padding: 15px; font-size: 20px; font-weight: bold">
+      Notice Board
+    </div>
     <div class="search">
       <el-input placeholder="Enter title to search" style="width: 200px" v-model="title"></el-input>
       <el-button type="info" plain style="margin-left: 10px" @click="load(1)">Search</el-button>

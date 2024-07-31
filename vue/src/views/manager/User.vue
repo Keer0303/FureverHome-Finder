@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="search">
-      <el-input placeholder="Please enter the account to search" style="width: 200px" v-model="username"></el-input>
+      <el-input placeholder="Search by User Name" style="width: 200px" v-model="username"></el-input>
       <el-button type="info" plain style="margin-left: 10px" @click="load(1)">Search</el-button>
       <el-button type="warning" plain style="margin-left: 10px" @click="reset">Reset</el-button>
     </div>
 
     <div class="operation">
-      <el-button type="primary" plain @click="handleAdd">Add</el-button>
+      <el-button type="primary" plain @click="handleAdd">Add New User</el-button>
       <el-button type="danger" plain @click="delBatch">Batch Delete</el-button>
     </div>
 
@@ -29,6 +29,7 @@
         </el-table-column>
         <el-table-column prop="role" label="Role"></el-table-column>
         <el-table-column prop="account" label="Account"></el-table-column>
+        <!--  余额    -->
         <el-table-column label="Actions" align="center" width="180">
           <template v-slot="scope">
             <el-button size="mini" type="primary" plain @click="handleEdit(scope.row)">Edit</el-button>

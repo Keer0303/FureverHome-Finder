@@ -3,6 +3,13 @@
     color: #666;
     font-size: 12px
 }
+.user-header {
+    background-color: #add8e6; /* 浅蓝色，用户背景 */
+}
+
+.admin-header {
+    background-color: #333; /* 深蓝色，管理员背景 */
+}
 .front-header {
     display: flex;
     height: 60px;
@@ -47,12 +54,11 @@
     text-align: center !important;
 }
 
-/*页面具体样式自定义*/
 .main-content {
     width: 100%;
     margin: 5px auto;
 }
-/* ElementUI 样式覆盖 */
+
 .el-menu.el-menu--horizontal {
     border: none !important;
     height: 59px;
