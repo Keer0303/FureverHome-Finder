@@ -25,7 +25,7 @@
           </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="goToPerson">Personal Center</el-dropdown-item>
-            <el-dropdown-item @click.native="$router.push('/password')">Change Password</el-dropdown-item>
+<!--            <el-dropdown-item @click.native="$router.push('/password')">Change Password</el-dropdown-item>-->
             <el-dropdown-item @click.native="logout">Logout</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -45,9 +45,9 @@
             <template slot="title">
               <i class="el-icon-menu"></i><span>Information</span>
             </template>
-            <el-menu-item index="/notice " v-if = "user.role === 'ADMIN'" >Notice Board</el-menu-item>
-
-            <el-menu-item index="/animal" v-if = "user.role === 'ADMIN'" >Animal Info</el-menu-item>
+<!--            <el-menu-item index="/notice " v-if = "user.role === 'ADMIN'" >Notice Board</el-menu-item>-->
+            <el-menu-item index="/animal"  >Animal Info</el-menu-item>
+            <el-menu-item index="/room">Paws on Pause </el-menu-item>
             <el-menu-item index="/adopt">Adopt Record</el-menu-item>
             <el-menu-item index="/applications" >Applications </el-menu-item>
             <el-menu-item index="/submit">Stray Animal Report</el-menu-item>

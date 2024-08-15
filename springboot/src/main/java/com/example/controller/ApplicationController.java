@@ -20,7 +20,6 @@ public class ApplicationController {
 
     @Resource
     private ApplicationService applicationService;
-    private AnimalService animalService;
 
     /**
      * Add new application

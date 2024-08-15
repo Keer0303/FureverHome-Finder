@@ -75,15 +75,5 @@ public class AnimalService {
         return PageInfo.of(list);
     }
 
-//    public Animal selectByName(String name) {return animalMapper.selectByName(name);
-//    }
-//
-//    public Animal selectBySpecies(String species) {return animalMapper.selectBySpecies(species);
-//    }
-//
-//    public Animal selectByGender(String gender) {return animalMapper.selectByGender(gender);
-//    }
-//
-//    public Animal selectByAge(String age) {return animalMapper.selectByAge(age);
-//    }
+
 }

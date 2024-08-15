@@ -57,17 +57,24 @@ public class ApplicationService {
      * Update application by ID
      */
     public void updateById(Application application) {
-        // 更新 Application
         applicationMapper.updateByPrimaryKey(application);
 
-        // 如果 Application 的状态为 Approved，则更新对应 Animal 的状态为 Pending
         if ("Approved".equals(application.getStatus())) {
-
             Animal animal = animalMapper.selectById(application.getAnimalId());
             if (animal != null) {
                 animal.setStatus("Pending");
                 animalMapper.updateById(animal);
+                System.out.println("Animal status updated to Pending for ID: " + animal.getId());
             }
+        } else if ("Finished".equals(application.getStatus())) {
+            Animal animal = animalMapper.selectById(application.getAnimalId());
+            if (animal != null) {
+                animal.setStatus("Adopted");
+                animalMapper.updateById(animal);
+                System.out.println("Animal status updated to Adopted for ID: " + animal.getId());
+            }
+        } else {
+            System.err.println("Unexpected status: " + application.getStatus());
         }
     }
 

@@ -28,6 +28,11 @@
       <el-button type="warning" plain style="margin-left: 10px" @click="reset">Reset</el-button>
     </div>
 
+    <div class="operation" v-if="user.role !== 'USER'">
+      <el-button type="danger" plain @click="delBatch">Batch Delete</el-button>
+    </div>
+
+
     <div class="table">
       <el-table :data="tableData" stripe @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55" align="center"></el-table-column>
@@ -44,11 +49,25 @@
         <el-table-column prop="userName" label="Adopter" show-overflow-tooltip></el-table-column>
         <el-table-column prop="time" label="Adopt Time"></el-table-column>
         <el-table-column prop="status" label="Adoption Status"></el-table-column>
-        <el-table-column label="Actions" width="180" align="center">
-          <template v-slot="scope">
-            <el-button v-if="user.role !== 'ADMIN'" plain type="danger" size="mini" :disabled="scope.row.status === 'GiveUp Adoption'" @click="GiveUp(scope.row)">Give Up Adoption</el-button>
-          </template>
-        </el-table-column>
+        <<el-table-column
+          label="Actions"
+          width="180"
+          align="center"
+          v-if="user.role !== 'ADMIN'"
+      >
+        <!-- Button only visible to non-admins -->
+        <template v-slot="scope">
+          <el-button
+              plain
+              type="danger"
+              size="mini"
+              :disabled="scope.row.status === 'GiveUp Adoption'"
+              @click="GiveUp(scope.row)"
+          >
+            Give Up Adoption
+          </el-button>
+        </template>
+      </el-table-column>
       </el-table>
 
       <div class="pagination">

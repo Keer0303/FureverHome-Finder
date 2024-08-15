@@ -22,10 +22,11 @@ const routes = [
       { path: 'user', name: 'User', meta: { name: 'User Information' }, component: () => import('../views/manager/User') },
       { path: 'adminPerson', name: 'AdminPerson', meta: { name: 'Personal Information' }, component: () => import('../views/manager/AdminPerson') },
       { path: 'userPerson', name: 'UserPerson', meta: { name: 'Personal Information' }, component: () => import('../views/manager/UserPerson') },
-      { path: 'password', name: 'Password', meta: { name: 'Change Password' }, component: () => import('../views/manager/Password') },
-      { path: 'notice', name: 'Notice', meta: { name: 'Notice Information' }, component: () => import('../views/manager/Notice') },
+      // { path: 'password', name: 'Password', meta: { name: 'Change Password' }, component: () => import('../views/manager/Password') },
+      // { path: 'notice', name: 'Notice', meta: { name: 'Notice Board' }, component: () => import('../views/manager/Notice.vue') },
       { path: 'animal', name: 'Animal', meta: { name: 'Animal Information' }, component: () => import('../views/manager/Animal') },
       { path: 'adopt', name: 'Adopt', meta: { name: 'Adopt record' }, component: () => import('../views/manager/Adopt') },
+      { path: 'room', name: 'Room', meta: { name: 'Paws on Pause' }, component: () => import('../views/manager/Room') },
       { path: 'applications', name: 'Applications', meta: { name: 'Adoption Applications' }, component: () => import('../views/manager/Applications.vue') },
       { path: 'submit', name: 'Submit', meta: { userTitle: 'Report Stray Animal', adminTitle: 'Reports' }, component: () => import('../views/manager/Submit.vue') },
     ]
@@ -37,8 +38,10 @@ const routes = [
     children: [
       { path: 'home', name: 'Home', meta: { name: 'System Homepage' }, component: () => import('../views/front/Home') },
       { path: 'person', name: 'Person', meta: { name: 'Personal Information' }, component: () => import('../views/front/Person') },
+
     ]
   },
+  { path: '/privacy', name: 'Privacy', meta: { name: 'Privacy Policy' }, component: () => import('../views/Privacy.vue') },
   { path: '/login', name: 'Login', meta: { name: 'Login' }, component: () => import('../views/Login.vue') },
   { path: '/register', name: 'Register', meta: { name: 'Register' }, component: () => import('../views/Register.vue') },
   { path: '*', name: 'NotFound', meta: { name: 'Page Not Found' }, component: () => import('../views/404.vue') },

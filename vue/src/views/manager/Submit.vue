@@ -55,7 +55,7 @@
 
     <el-dialog title="Please report real and effective information, thank you for your cooperation!" :visible.sync="formVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
       <el-form label-width="100px" style="padding-right: 50px" :model="form" :rules="rules" ref="formRef">
-        <el-form-item prop="img" label="Upload Image">
+        <el-form-item prop="img" label="Upload Img">
           <el-upload
               class="avatar-uploader"
               :action="$baseUrl + '/files/upload'"
@@ -65,6 +65,7 @@
           >
             <el-button type="primary">Upload Image</el-button>
           </el-upload>
+          <span style="color: #999; font-size: 12px; margin-left: 10px;">Image should be less than 2MB</span>
         </el-form-item>
         <el-form-item prop="name" label="Description">
           <el-input type="textarea" :rows="4" v-model="form.name" autocomplete="off"></el-input>
